@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PinewoodMvc.Models.Customer>
+
+<h2>Customers</h2>
+<p>
+    <a asp-action="Form">Add New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.Email</td>
+                <td>@customer.Phone</td>
+                <td>
+                    <a asp-action="Form" asp-route-id="@customer.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@customer.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
